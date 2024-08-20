@@ -3,7 +3,9 @@
 ## 🌟 简介
 
 欢迎来到acgFree宝藏库，这里是ACG游戏爱好者的乐园！
+
 github pages页链接（[https://acgfree.github.io](https://acgfree.github.io)），我们也有独立的网站([qfafa.com](https://qfafa.com)),上面搜索游戏更方便。
+
 我们不仅仅是一个小黄油资源分享平台，更是一个汇聚了无数游戏发烧友的交流社区。无论你是寻找刺激的小黄油游戏，还是想找到一群志同道合的朋友，我们都能满足你的需求！
 
 ## 🗂️ 资源分类
