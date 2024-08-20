@@ -1,0 +1,67 @@
+encoding: utf-8
+
+plugins:
+  - jekyll-regex-replace
+  - jekyll-paginate
+
+# SEO相关信息
+title: acgFree
+description: 这是一个H小黄油游戏免费分享网站，找ACG、二次元、同人等galgame资源的童鞋，可以来这里看看。
+keywords: ACG游戏,galgame,H小黄油,二次元,同人
+author: acgFree
+footerText: 'Copyright © 2020 皖ICP备16016100号'
+
+# 这些不要动
+permalink: /:year-:month-:day/:title.html
+kramdown:
+  auto_ids: true
+  input: GFM
+  syntax_highlighter: rouge
+exclude: ['CNAME', 'README.md', 'LICENSE', '_site', 'dist', 'Gemfile', 'Gemfile.lock', 'blog.sh']
+
+#分页
+paginate: 10  # 每页显示的文章数量
+paginate_path: "/page:num/"  # 分页的URL格式
+
+# 域名配置
+# baseurl配置,如果网站部署在根目录下的其他目录中，请设置为 /目录名
+domainUrl: 'https://acgfree.github.io'
+baseurl: ''
+
+# 吐个槽地址，会在chat页面中重定向到该地址
+tucaoUrl: https://qfafa.com
+
+# 菜单
+# 必填字段 title: '文本' url: '链接'
+# 可选字段 target: '_blank' 新页面打开 
+menu:
+  - title: 首页
+    url: /
+  - title: 搜索
+    url: /pages/search.html
+  - title: 友链
+    url: /pages/links.html
+  - title: 留言
+    url: /pages/chat.html
+  - title: 关于
+    url: /pages/about.html
+
+# 点击页面文字冒出特效,不需要请设置为false
+extClickEffect: true
+
+# Google Adsense,不需要请设置为false
+# _includes/ext-adsense.html 里面修改为自己的配置
+extAdsense: false
+
+# 数学公式支持，比较影响加载速度,不需要请设置为false
+extMath: false
+
+# 显示访问量统计，由不蒜子提供服务
+extCount: false
+
+# 友情链接
+links:
+  - title: Q发发ACG资源
+    url: https://qfafa.com
+  - title: 好梯子
+    url: https://htizi.cc

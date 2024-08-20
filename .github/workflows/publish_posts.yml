@@ -1,0 +1,63 @@
+name: Publish Posts
+
+on:
+  schedule:
+    - cron: '10 * * * *'  # 每小时运行一次
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0  # 获取完整的 git 历史
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.7
+
+    - name: Install dependencies
+      run: |
+        gem install jekyll
+        gem install octokit
+
+    - name: Move and commit posts
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        ruby <<EOF
+        require 'fileutils'
+        require 'octokit'
+
+        client = Octokit::Client.new(access_token: ENV['GITHUB_TOKEN'])
+        repo = ENV['GITHUB_REPOSITORY']
+
+        drafts_dir = 'posts_tmp'  # 存放待发布文章的目录
+        posts_dir = '_posts'   # Jekyll 的文章目录
+
+        # 获取待发布的文章
+        drafts = Dir.glob(File.join(drafts_dir, '*.md')).sort
+
+        # 只处理前10篇文章
+        drafts[0...10].each do |draft|
+          new_filename = Time.now.strftime('%Y-%m-%d-') + File.basename(draft)
+          FileUtils.mv(draft, File.join(posts_dir, new_filename))
+          
+          # 提交更改
+          system("git config user.name github-actions")
+          system("git config user.email github-actions@github.com")
+          system("git add #{posts_dir}/#{new_filename}")
+          system("git commit -m 'Publish post: #{new_filename}'")
+        end
+
+        # 推送更改
+        system("git push")
+        EOF
+
+    - name: Trigger GitHub Pages rebuild
+      run: |
+        curl -X POST \
+        -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+        -H "Accept: application/vnd.github.v3+json" \
+        https://api.github.com/repos/${{ github.repository }}/pages/builds

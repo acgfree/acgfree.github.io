@@ -1,0 +1,47 @@
+---
+layout: page
+title: ACG游戏资源免费分享：二次元、同人H小黄油galgame
+---
+
+<!-- 显示文章列表 -->
+<div class="page page-index">
+	<div class="list-post">
+	<h2 id="{{post_year}}">最新acg游戏</h2>
+	<ul>
+		{% for post in paginator.posts %}
+		<li>
+			<span class="date">{{ post.date | date: "%Y/%m/%d" }}</span>
+			<div class="title"><a href="{{ post.url }}">{{ post.title }}</a></div>
+			<p class="excerpt">{{ post.excerpt }}</p>
+		</li>
+		{% endfor %}
+	</ul>
+    </div>
+</div>
+
+<!-- 分页链接 -->
+{% if paginator.total_pages > 1 %}
+<div class="pagination">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | relative_url }}">&laquo; 上一页</a>
+  {% else %}
+    <span>&laquo; 上一页</span>
+  {% endif %}
+
+  {% for page in (1..paginator.total_pages) %}
+    {% if page == paginator.page %}
+      <em>{{ page }}</em>
+    {% elsif page == 1 %}
+      <a href="{{ '/' | relative_url }}">{{ page }}</a>
+    {% else %}
+      <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a>
+    {% endif %}
+  {% endfor %}
+
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | relative_url }}">下一页 &raquo;</a>
+  {% else %}
+    <span>下一页 &raquo;</span>
+  {% endif %}
+</div>
+{% endif %}
