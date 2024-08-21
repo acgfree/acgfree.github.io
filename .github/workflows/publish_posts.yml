@@ -13,7 +13,7 @@ jobs:
         fetch-depth: 0  # 获取完整的 git 历史
 
     - name: Set up Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: '20'
 
@@ -30,6 +30,11 @@ jobs:
         bundle config set path 'vendor/bundle'
         bundle install --jobs 4 --retry 3 --verbose
 
+    - name: Check Git status
+      run: |
+        git status
+        git log -n 5
+
     - name: Move and commit posts
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -38,29 +43,39 @@ jobs:
         require 'fileutils'
         require 'octokit'
 
-        client = Octokit::Client.new(access_token: ENV['GITHUB_TOKEN'])
-        repo = ENV['GITHUB_REPOSITORY']
+        begin
+          client = Octokit::Client.new(access_token: ENV['GITHUB_TOKEN'])
+          repo = ENV['GITHUB_REPOSITORY']
 
-        drafts_dir = 'posts_tmp'  # 存放待发布文章的目录
-        posts_dir = '_posts'   # Jekyll 的文章目录
+          drafts_dir = 'posts_tmp'
+          posts_dir = '_posts'
 
-        # 获取待发布的文章
-        drafts = Dir.glob(File.join(drafts_dir, '*.md')).sort
+          puts "检查目录是否存在..."
+          puts "drafts_dir 存在: #{Dir.exist?(drafts_dir)}"
+          puts "posts_dir 存在: #{Dir.exist?(posts_dir)}"
 
-        # 只处理前10篇文章
-        drafts[0...10].each do |draft|
-          new_filename = Time.now.strftime('%Y-%m-%d-') + File.basename(draft)
-          FileUtils.mv(draft, File.join(posts_dir, new_filename))
-          
-          # 提交更改
-          system("git config user.name github-actions")
-          system("git config user.email github-actions@github.com")
-          system("git add #{posts_dir}/#{new_filename}")
-          system("git commit -m 'Publish post: #{new_filename}'")
+          drafts = Dir.glob(File.join(drafts_dir, '*.md')).sort
+          puts "找到 #{drafts.length} 篇待发布文章"
+
+          drafts[0...10].each do |draft|
+            new_filename = Time.now.strftime('%Y-%m-%d-') + File.basename(draft)
+            puts "移动文件: #{draft} 到 #{File.join(posts_dir, new_filename)}"
+            FileUtils.mv(draft, File.join(posts_dir, new_filename))
+            
+            puts "提交更改: #{new_filename}"
+            system("git config user.name github-actions")
+            system("git config user.email github-actions@github.com")
+            system("git add #{posts_dir}/#{new_filename}")
+            system("git commit -m 'Publish post: #{new_filename}'")
+          end
+
+          puts "推送更改"
+          system("git push")
+        rescue => e
+          puts "发生错误: #{e.message}"
+          puts e.backtrace.join("\n")
+          exit 1
         end
-
-        # 推送更改
-        system("git push")
         EOF
 
     - name: Trigger GitHub Pages rebuild
