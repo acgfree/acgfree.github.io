@@ -21,14 +21,12 @@ jobs:
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: 2.7
-	bundler-cache: true  # 启用 Bundler 缓存
+        bundler-cache: true  # 启用 Bundler 缓存
 
     - name: Install dependencies
       run: |
         bundle config set path 'vendor/bundle'
         bundle install
-	#gem install jekyll
-        #gem install octokit
 
     - name: Move and commit posts
       env:
