@@ -18,26 +18,15 @@ jobs:
         ruby-version: '3.2'
         bundler-cache: true
 
-    - name: Unfreeze Gemfile.lock
-      run: bundle config set --local frozen false
-
-    - name: Update Bundler and dependencies
+    - name: Install dependencies
       run: |
-        gem update --system
-        gem update bundler
-        bundle update --bundler
+        gem install octokit
         bundle install
 
-    - name: Regenerate Gemfile.lock if needed
+    - name: Check installed gems
       run: |
-        if [ ! -f Gemfile.lock ]; then
-          bundle install
-        fi
-
-    - name: Check Git status
-      run: |
-        git status
-        git log -n 5
+        gem list
+        bundle list
 
     - name: Move and commit posts
       env:
