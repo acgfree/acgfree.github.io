@@ -1,3 +1,14 @@
+.page-content h1{font-size:22px;line-height:2.4; margin: 10px 0;padding: 0;color: #222;font-weight:bold;}
+.page-content  h2,.page-content  h3{font-size:16px;line-height:1.8; font-weight:bold;margin:0 0 10px 0;padding: 0}
+.page-content  h2{font-size:18px;border-bottom:1px solid #eee;line-height:2.0;border-left:4px solid #999;padding-left:6px;}
+.page-content p{margin:0 0 10px 0;line-height:1.6;}
+.page-content a{color:#0267FF;}
+.page-content a:hover{text-decoration: underline;}
+.page-content img{max-width: 100%;}
+.page-content ul li{list-style-type: disc;list-style-position: inside;}
+.page-content ol li {list-style-position: inside;}
+.page-content ol li::marker {font-weight: bold}
+.page-content ol >li{list-style-type: decimal;}
 .list-post > h2 {
   font-size: 15px;
   font-weight: bold;
