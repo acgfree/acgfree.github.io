@@ -6,10 +6,10 @@ plugins:
 
 # SEO相关信息
 title: acgFree
-description: acgFree宝藏库，是ACG游戏爱好者的乐园！ 不仅是一个小黄油资源分享平台，更是一个游戏发烧友的交流社区。无论你是寻找二次元、同人galgame资源，还是寻找一群志同道合的朋友，我们都能满足你的需求！
+description: acgFree宝藏库，是ACG游戏爱好者的乐园！ 不仅是一个小黄油资源免费分享平台，更是一个游戏发烧友的交流社区。无论你是寻找二次元、同人galgame资源，还是寻找一群志同道合的朋友，我们都能满足你的需求！
 keywords: ACG游戏,galgame,H小黄油,二次元,同人
 author: acgFree
-footerText: 'Copyright © 2020 皖ICP备16016100号'
+footerText: 'Copyright © 2024 AcgFree黄油库'
 
 # 这些不要动
 permalink: /:year-:month-:day/:title.html
