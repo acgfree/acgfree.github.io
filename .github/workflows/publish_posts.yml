@@ -12,15 +12,23 @@ jobs:
       with:
         fetch-depth: 0  # 获取完整的 git 历史
 
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
+
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: 2.7
+	bundler-cache: true  # 启用 Bundler 缓存
 
     - name: Install dependencies
       run: |
-        gem install jekyll
-        gem install octokit
+        bundle config set path 'vendor/bundle'
+        bundle install
+	#gem install jekyll
+        #gem install octokit
 
     - name: Move and commit posts
       env:
