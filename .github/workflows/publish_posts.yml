@@ -8,7 +8,7 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
       with:
         fetch-depth: 0  # 获取完整的 git 历史
 
@@ -20,13 +20,15 @@ jobs:
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: 2.7
+        ruby-version: '3.2'
         bundler-cache: true  # 启用 Bundler 缓存
 
     - name: Install dependencies
       run: |
+        gem update --system
+        bundle update --bundler
         bundle config set path 'vendor/bundle'
-        bundle install
+        bundle install --jobs 4 --retry 3 --verbose
 
     - name: Move and commit posts
       env:
