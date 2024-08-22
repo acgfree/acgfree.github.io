@@ -9,6 +9,23 @@
 .page-content ol li {list-style-position: inside;}
 .page-content ol li::marker {font-weight: bold}
 .page-content ol >li{list-style-type: decimal;}
+
+.page-list{line-height:1.8}
+.page-content li .date {
+  color: #666666;
+  vertical-align: top;
+  margin-right: 10px;
+display:inline-block;
+}
+.page-content li .title {
+display: inline-block;
+  vertical-align: top;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.page-content li .title a{color:#222}
+
 .list-post > h2 {
   font-size: 15px;
   font-weight: bold;

@@ -29,14 +29,12 @@ excerpt: acgFree宝藏库，是ACG游戏爱好者的乐园！ 不仅是一个小
 <p>无论你是寻找小黄油还是其他类型的ACG游戏，acgFree宝藏库都是你的不二之选！这里有海量的免费下载资源，更有一群志同道合的朋友在等你！</p>
 <p>快来加入我们，在这个精彩的ACG游戏世界中探索属于你的乐趣吧！</p>
 	</div>
-	<div class="list-post">
+	<div class="page-content">
 	<h2>最新acg游戏</h2>
-	<ul>
+	<ul class="page-list">
 		{% for post in paginator.posts %}
 		<li>
-			<span class="date">{{ post.date | date: "%Y/%m/%d" }}</span>
-			<div class="title"><a href="{{ post.url }}">{{ post.title }}</a></div>
-			<p class="excerpt">{{ post.excerpt }}</p>
+			<div class="date">{{ post.date | date: "%Y-%m-%d" }}</div><div class="title"><a href="{{ post.url }}">{{ post.title }}</a></div>
 		</li>
 		{% endfor %}
 	</ul>
