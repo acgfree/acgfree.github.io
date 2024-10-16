@@ -1,75 +1,35 @@
 .page-post {
-  font-size: 14px;
-  line-height: 2;
+  font-size: 16px;
+  line-height: 1.7;
   word-break: break-all;
 }
 .page-post .title {
-  font-size: 18px;
-  font-weight: bold;
-  color: #666666;
+
+  font-size:22px;line-height:2.4; margin: 10px 0;padding: 0;color: #222;font-weight:bold;
 }
 .page-post .subtitle {
-  font-size: 12px;
+  font-size: 14px;
   color: #999999;
 }
 .page-post .post > * {
-  margin: 18px 0;
+  margin: 14px 0;
 }
 .page-post .post > iframe {
   margin: 0;
   width: 100%;
 }
-.page-post .post h1,
-.page-post .post h2 {
-  font-weight: normal;
-  font-size: 17px;
-  position: relative;
-  cursor: pointer;
-}
-.page-post .post h1::before,
-.page-post .post h2::before {
-  content: '#';
-  top: 0;
-  font-weight: bold;
-  padding-right: 6px;
-}
-.page-post h3,
-.page-post h4,
-.page-post h5,
-.page-post h6 {
-  font-size: 15px;
-  font-weight: bold;
-}
-.page-post blockquote {
-  border-left: 3px solid #333333;
-  background-color: #f7f7f7;
-  padding: 9px 9px 9px 15px;
-}
 
-.page-post a {
-  color: #000000;
-  margin: 0 2px;
-  border-bottom: 1px solid #000000;
-}
-.page-post strong,
-.page-post b {
-  color: #000000;
-}
-.page-post .post ul {
-  margin-left: 16px;
-}
-.page-post .post ol {
-  margin-left: 23px;
-}
-.page-post ul > li {
-  list-style: disc;
-}
-.page-post ol > li {
-  list-style: decimal;
-}
-.page-post li > *{
-  margin: 6px 0;
-}
+.page-post h1{font-size:22px;line-height:2.4; margin: 10px 0;padding: 0;color: #222;font-weight:bold;}
+.page-post  h2,.page-content  h3{font-size:16px;line-height:1.8; font-weight:bold;margin:0 0 10px 0;padding: 0}
+.page-post  h2{font-size:18px;border-bottom:1px solid #eee;line-height:2.0;border-left:4px solid #999;padding-left:6px;}
+.page-post p{margin:0 0 10px 0;line-height:1.6;}
+.page-post a{color:#0267FF;}
+.page-post a:hover{text-decoration: underline;}
+.page-post ul li{list-style-type: disc;list-style-position: inside;}
+.page-post ol li {list-style-position: inside;}
+.page-post ol li::marker {font-weight: bold}
+.page-post ol >li{list-style-type: decimal;}
+
 .page-post img {
   display: block;
   max-width: 100%;
@@ -152,9 +112,6 @@
   border-bottom: 0;
 }
 @media screen and (max-width: 560px) {
-  .page-post {
-    font-size: 13px;
-  }
   .page-post pre code {
     font-size: 12px;
   }
