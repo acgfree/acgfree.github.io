@@ -4,19 +4,10 @@ title: 搜索
 ---
 
 <div class="page page-search">
-  <input id="search-input" type="text" placeholder="请在这里输入关键词^_^"></input>
+    <div><input id="search-input" type="text" placeholder="输入游戏名字"></div>
+    <div><button type="button" id="search-btn">立即提交</button></div>
   <h1>
-    <span>搜索结果</span>
-    <i class="svg-icon icon-loading"></i>
+   <span>搜索结果</span>
   </h1>
-  <ul class="list-search">
-    {%- for post in site.posts  %}
-    <li hidden>
-      <a href="{{site.baseurl}}{{ post.url }}">
-        <p class="title">{{ post.title }}</p>
-        <p class="content"></p>
-      </a>
-    </li>
-    {%- endfor %}
-  </ul>
+  <div id="search-tips" style="color:red"></div>
 </div>
