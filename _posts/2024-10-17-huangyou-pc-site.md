@@ -1,9 +1,9 @@
 ---
 layout: mypost
 title: acg魔王萌次元网站打不开原因，mwmoe.me最新情况
-keywords: 魔王萌次元
+keywords: 黄油推荐pc网站
 categories: other
-slug: mwmoe
+slug: huangyou-pc-site
 pic: /posts/2024/10/11/001.jpg
 date: 2024-10-17
 excerpt: 探索《我的新女友》这款成人色情游戏的迷人世界，深入主角埃里克与维奥莱特之间的激情关系。玩家将扮演埃里克，穿梭于一系列充满诱惑的场景中，体验从亲密接触到与其他角色的邂逅，满足NTS/NTR世界的多样化口味。游戏以虚拟小说的形式呈现，Vi将遵循NTS路线，涵盖分享、摇摆和暴露狂等元素。
